@@ -10,8 +10,10 @@ const config = {
 };
 firebase.initializeApp(config);
 
+// Required to maintain compatibility with updates to firestore (from console error)
 export const firestore = firebase.firestore();
 
+// Required to maintain compatibility with updates to firestore (from console error)
 const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
 
