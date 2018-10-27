@@ -3,7 +3,9 @@ import './App.css';
 
 import { firestore } from './firebase';
 
-const dbRef = firestore.doc("test-collection/87XSzkREXnBdP5tozieA")
+// const dbRef = firestore.collection('users').where('UID', '==', true)
+const dbRef = firestore.collection('users')
+// const dbRef = firestore.collection('users').doc("87XSzkREXnBdP5tozieA")
 
 class App extends Component {
   constructor() {
@@ -14,9 +16,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    dbRef.onSnapshot(snapshot => {
-      console.log(snapshot.data());
-    })
+    dbRef
+    .get()
+    .then(snapshot => {
+      snapshot.forEach( doc => {
+        console.log(doc.id, '=>', doc.data());
+      })
+    });
   }
 
   render() {
