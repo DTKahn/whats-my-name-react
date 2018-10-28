@@ -4,7 +4,7 @@ import './App.css';
 import { firestore } from './firebase';
 
 // const dbRef = firestore.collection('users').where('UID', '==', true)
-const dbRef = firestore.collection('users')
+const dbUsers = firestore.collection('users')
 // const dbRef = firestore.collection('users').doc("87XSzkREXnBdP5tozieA")
 
 class App extends Component {
@@ -16,12 +16,30 @@ class App extends Component {
   }
 
   componentDidMount() {
-    dbRef
+    dbUsers
     .get()
     .then(snapshot => {
       snapshot.forEach( doc => {
         console.log(doc.id, '=>', doc.data());
       })
+    });
+
+    dbUsers
+    .add({
+      email: 'kai@gmail.com',
+      fName: 'Kai',
+      lName: 'Berger-Medina'
+    })
+    .then(docRef => {
+      
+      dbUsers
+      .doc(docRef.id)
+      .update({ UID: docRef.id });
+      
+      console.log(docRef.id);
+    })
+    .catch( error => {
+      console.log(`Error writing to DB: ${error}`);
     });
   }
 
