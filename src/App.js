@@ -16,14 +16,17 @@ class App extends Component {
   }
 
   componentDidMount() {
+    
+    // Get all docs in the users collection
     dbUsers
     .get()
     .then(snapshot => {
-      snapshot.forEach( doc => {
-        console.log(doc.id, '=>', doc.data());
+      snapshot.forEach( docRef => {
+        console.log(docRef.id, '=>', docRef.data());
       })
     });
 
+    // Add new user to Firestore
     dbUsers
     .add({
       email: 'kai@gmail.com',
