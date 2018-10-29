@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { firestore } from './firebase';
 import './App.css';
 
-import { firestore } from './firebase';
+// Component imports
+import LoginPage from './components/LoginPage';
 
 // const dbRef = firestore.collection('users').where('UID', '==', true)
 const dbUsers = firestore.collection('users')
@@ -54,6 +56,8 @@ class App extends Component {
         </header>
         <main>
           <p>MAAAAIN</p>
+
+          <LoginPage />
         </main>
       </div>
     );
