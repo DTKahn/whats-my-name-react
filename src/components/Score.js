@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 
-// Import componenets
+// Import Components
 import SelectTopic from './SelectTopic';
 
-class LoginPage extends Component {
+class Score extends Component {
   constructor() {
     super();
     this.state = {
-      
+
     };
   }
 
   render() {
     return (
       <div>
-        <button>Login/Create Account with GMail</button>
-        <SelectTopic componentName="LoginPage" />
+        <p>SCORE PLACEHOLDER</p>
+        <SelectTopic componentName="Score"/>
       </div>
     )
   }
 }
 
-export default LoginPage;
+export default Score;

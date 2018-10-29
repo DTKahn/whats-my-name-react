@@ -4,6 +4,9 @@ import './App.css';
 
 // Component imports
 import LoginPage from './components/LoginPage';
+import SelectTopic from './components/SelectTopic';
+import Score from './components/Score';
+import PlayGame from './components/PlayGame';
 
 // const dbRef = firestore.collection('users').where('UID', '==', true)
 const dbUsers = firestore.collection('users')
@@ -55,9 +58,9 @@ class App extends Component {
           <h1>Hello my name is</h1>
         </header>
         <main>
-          <p>MAAAAIN</p>
-
           <LoginPage />
+          <PlayGame />
+          <Score />
         </main>
       </div>
     );
