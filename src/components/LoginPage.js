@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
-// Import componenets
-import SelectTopic from './SelectTopic';
+import HeaderAdmin from './HeaderAdmin';
 
 class LoginPage extends Component {
   constructor() {
@@ -13,10 +11,15 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
-        <button>Login/Create Account with GMail</button>
-        <SelectTopic componentName="LoginPage" />
-      </div>
+      <React.Fragment>
+        <HeaderAdmin />
+        <main>
+          <div className="login-options">
+            <button>Login/Create Account with GMail</button>
+            <button>Play as Guest</button>
+          </div>
+        </main>
+      </React.Fragment>
     )
   }
 }
