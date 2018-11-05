@@ -8,6 +8,8 @@ import Score from './components/Score';
 import PlayGame from './components/PlayGame';
 import SelectTopic from './components/SelectTopic';
 
+import { gero, batman, dogs, bensBagels, hackerYouStaff } from './topics';
+
 // const dbRef = firestore.collection('users').where('UID', '==', true)
 const dbUsers = firestore.collection('users')
 // const dbRef = firestore.collection('users').doc("87XSzkREXnBdP5tozieA")
@@ -23,9 +25,13 @@ class App extends Component {
       score: 0,
       user: {},
       timeRemaining: 60,
-      topic: ''
+      topic: '',
+      // Will be moved to DB later
+      listOfTopics: [`Mom's Side`, `60s Batman`, `Famous Dogs`, `Ben's Bagels`, 'hackerYou Staff']
     };
   }
+
+  
 
   componentDidMount() {
     // COMMENTING OUT ALL DB CODE WHILE GETTING THE GAME SET UP
@@ -56,6 +62,8 @@ class App extends Component {
     // .catch( error => {
     //   console.log(`Error writing to DB: ${error}`);
     // });
+
+    this.setState({ unansweredQuestions: gero })
   }
 
   render() {
