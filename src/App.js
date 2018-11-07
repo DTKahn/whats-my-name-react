@@ -63,7 +63,7 @@ class App extends Component {
     //   console.log(`Error writing to DB: ${error}`);
     // });
 
-    this.setState({ unansweredQuestions: gero })
+    this.setState({ unansweredQuestions: batman })
   }
 
   render() {
